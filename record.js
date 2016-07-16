@@ -6,8 +6,5 @@ var Record = function(artist, title, price) {
   this.price = price
 }
 
-Record.prototype = {
-
-}
 
 module.exports = Record;

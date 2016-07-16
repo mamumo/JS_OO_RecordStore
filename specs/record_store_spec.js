@@ -51,7 +51,34 @@ describe('Record Store', function() {
     assert.deepEqual( [record1, record2, record3, record4], recordStore1.inventory)
   })
 
-  it 
+  it('should be able to sell a record', function(){
+    var recordStore1 = new RecordStore("Tommys Tunes", "Glasgow", 100);
+    var record1 = new Record("Michael Jackson", "Billie Jean", 5);
+    var record2 = new Record("Abba", "Knowing Me Knowing You", 10);
+    var record3 = new Record("Tom Jones", "Delilah", 6);
+    var record4 = new Record("Now 64", "Various", 20);
+    recordStore1.addRecord(record1);
+    recordStore1.addRecord(record2);
+    recordStore1.addRecord(record3);
+    recordStore1.addRecord(record4);
+    recordStore1.soldRecord(record2);
+    assert.equal(3, recordStore1.inventory.length)
+  })
+
+  it('should add to cash in bank when record sold', function() {
+    var recordStore1 = new RecordStore("Tommys Tunes", "Glasgow", 100);
+    var record1 = new Record("Michael Jackson", "Billie Jean", 5);
+    var record2 = new Record("Abba", "Knowing Me Knowing You", 10);
+    var record3 = new Record("Tom Jones", "Delilah", 6);
+    var record4 = new Record("Now 64", "Various", 20);
+    recordStore1.addRecord(record1);
+    recordStore1.addRecord(record2);
+    recordStore1.addRecord(record3);
+    recordStore1.addRecord(record4);
+    recordStore1.soldRecord(record2);
+    recordStore1.updatedInventoryAmount(record2);
+    assert.equal(110, recordStore1.cashInBank)
+  })
 
 
 })

@@ -1,4 +1,6 @@
-var _ = require('lodash')
+var _ = require('lodash');
+var Record = require('./record');
+
 
 var RecordStore = function(name, city, cashInBank) {
   this.name = name,
@@ -15,9 +17,18 @@ RecordStore.prototype = {
   listsInventory: function() {
     var inventoryList = this.inventory.map(function(record) {
       return inventoryList});
-  }
+  },
 
-}
+  soldRecord: function(record) {
+    var recordSold = this.inventory.shift(function(record){
+      return recordSold});
+    },
+
+  updatedInventoryAmount: function(record) {
+    this.cashInBank +=record.price;
+    }
+
+  }
   
 
 module.exports = RecordStore;
